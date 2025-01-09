@@ -14,6 +14,8 @@ fi
 echo "OS Name and Version"
 cat /etc/os-release
 
+echo "User: $USER"
+
 echo ""
 
 echo "Checking current keyboard layout..."
@@ -51,17 +53,16 @@ wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper
 
 # cp "Wellzesta TV" ~/Desktop/
 # cp "Wellzesta Active" ~/Desktop/
-
-echo "Installing wallpaper"
-sudo -u $USER pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
+# echo "Installing wallpaper"
+# sudo -u $USER pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
 
 # Go to user home directory before continue.
 cd ~
 
 echo ""
-echo "Creating systemd service for Wellzesat TV startup using Firefox..."
+echo "Creating systemd service for Wellzesta TV startup using Firefox..."
 
-cat <<EOF | sudo tee /etc/systemd/system/wellzesta-tv-startup.service
+cat <<EOF | sudo tee /etc/systemd/system/w-tv-startup.service
 [Unit]
 Description=Start Firefox-ESR on boot Running Wellzesta TV
 After=network.target
@@ -77,8 +78,8 @@ WantedBy=graphical.target
 EOF
 
 # Enable and start the service
-sudo systemctl enable wellzesta-tv-startup.service
-sudo systemctl start wellzesta-tv-startup.service
+sudo systemctl enable w-tv-startup.service
+sudo systemctl start w-tv-startup.service
 
 echo ""
 echo "Firefox startup service created and started."
