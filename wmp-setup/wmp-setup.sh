@@ -76,8 +76,8 @@ WantedBy=graphical.target
 EOF
 
 # Enable and start the service
-sudo systemctl enable firefox-startup.service
-sudo systemctl start firefox-startup.service
+sudo systemctl enable wellzesta-tv-startup.service
+sudo systemctl start wellzesta-tv-startup.service
 
 echo ""
 echo "Firefox startup service created and started."
