@@ -11,10 +11,10 @@ if [ "$EUID" -ne 0 ]; then
   exit
 fi
 
+echo "OS Name and Version"
+cat /etc/os-release
 
-os_info=$(cat /etc/os-release | tr '\n' ' ')
-echo "OS Name and Version: $os_info"
-
+echo ""
 
 echo "Checking current keyboard layout..."
 current_layout=$(setxkbmap -query | grep layout | awk '{print $2}')
@@ -29,13 +29,17 @@ fi
 # make script stops in case of error.
 set -e
 
+echo ""
 echo "Updating apt repositories..."
 apt-get update -y
 
+echo ""
 echo "Installing packages"
 apt-get install -y firefox-esr
 
 
+echo ""
+echo "Installing Wellzesta theme"
 # Install Wellzesta Branding
 cd /usr/share
 mkdir wellzesta && cd $_
@@ -45,7 +49,7 @@ wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_active_icon.png -O ./wellzes
 wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV -O ~/Desktop/
 wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O ~/Desktop/ 
 
-
+echo ""
 echo "Creating systemd service for Firefox startup..."
 
 cat <<EOF | sudo tee /etc/systemd/system/wellzesta-tv-startup.service
@@ -67,4 +71,5 @@ EOF
 sudo systemctl enable firefox-startup.service
 sudo systemctl start firefox-startup.service
 
+echo ""
 echo "Firefox startup service created and started."
