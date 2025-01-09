@@ -40,14 +40,13 @@ apt-get install -y firefox-esr
 
 echo ""
 echo "Installing Wellzesta theme"
-# Install Wellzesta Branding
 cd /usr/share
 mkdir wellzesta && cd $_
-wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper.jpg -O ./wellzesta_wallpaper.jpg
-wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_vis_icon.png -O ./wellzesta_vis_icon.png
-wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_active_icon.png -O ./wellzesta_active_icon.png
-wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV -O ~/Desktop/
-wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O ~/Desktop/ 
+wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper.jpg -O ./wellzesta_wallpaper.jpg
+wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_vis_icon.png -O ./wellzesta_vis_icon.png
+wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_active_icon.png -O ./wellzesta_active_icon.png
+wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV -O '~/Desktop/Wellzesta TV'
+wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O '~/Desktop/Wellzesta Active'
 
 echo ""
 echo "Creating systemd service for Firefox startup..."
