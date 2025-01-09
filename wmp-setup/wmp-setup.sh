@@ -48,8 +48,11 @@ wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_active_ic
 wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV -O '~/Desktop/Wellzesta TV'
 wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O '~/Desktop/Wellzesta Active'
 
+export DISPLAY=:0.0
+pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
+
 echo ""
-echo "Creating systemd service for Firefox startup..."
+echo "Creating systemd service for Wellzesat TV startup using Firefox..."
 
 cat <<EOF | sudo tee /etc/systemd/system/wellzesta-tv-startup.service
 [Unit]
