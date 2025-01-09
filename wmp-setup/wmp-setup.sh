@@ -14,7 +14,7 @@ fi
 echo "OS Name and Version"
 cat /etc/os-release
 
-echo "User: $USER"
+echo "User: $USER original user: $SUDO_USER"
 
 echo ""
 
@@ -70,8 +70,8 @@ After=network.target
 [Service]
 ExecStart=/usr/bin/firefox-esr --new-window "http://tv.wellzesta.com"
 Restart=always
-User=$USER
-Environment=DISPLAY=:0
+User=$SUDO_USER
+Environment=WAYLAND_DISPLAY=wayland-0
 
 [Install]
 WantedBy=graphical.target
