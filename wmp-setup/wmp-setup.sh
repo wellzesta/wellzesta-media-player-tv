@@ -43,13 +43,13 @@ echo "Installing Wellzesta theme"
 cd /usr/share
 mkdir wellzesta && cd $_
 wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper.jpg -O ./wellzesta_wallpaper.jpg
-wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_vis_icon.png -O ./wellzesta_vis_icon.png
-wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_active_icon.png -O ./wellzesta_active_icon.png
-wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV -O "./Wellzesta TV"
-wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O "./Wellzesta Active"
+# wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_vis_icon.png -O ./wellzesta_vis_icon.png
+# wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_active_icon.png -O ./wellzesta_active_icon.png
+# wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV -O "./Wellzesta TV"
+# wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O "./Wellzesta Active"
 
-cp "Wellzesta TV" ~/Desktop/
-cp "Wellzesta Active" ~/Desktop/
+# cp "Wellzesta TV" ~/Desktop/
+# cp "Wellzesta Active" ~/Desktop/
 export DISPLAY=:0.0
 pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
 
