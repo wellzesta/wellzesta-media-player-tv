@@ -14,7 +14,7 @@ fi
 echo "OS Name and Version"
 cat /etc/os-release
 
-echo "User: $USER original user: $SUDO_USER"
+echo "User: $SUDO_USER"
 
 echo ""
 
@@ -65,13 +65,14 @@ echo "Creating systemd service for Wellzesta TV startup using Firefox..."
 cat <<EOF | sudo tee /etc/systemd/system/w-tv-startup.service
 [Unit]
 Description=Start Firefox-ESR on boot Running Wellzesta TV
-After=network.target
+After=graphical.target network.target
 
 [Service]
 ExecStart=/usr/bin/firefox-esr --new-window "http://tv.wellzesta.com"
-Restart=always
+Type=oneshot
 User=$SUDO_USER
 Environment=WAYLAND_DISPLAY=wayland-0
+RemainAfterExit=no
 
 [Install]
 WantedBy=graphical.target
