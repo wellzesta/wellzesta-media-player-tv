@@ -53,7 +53,10 @@ wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper
 # cp "Wellzesta Active" ~/Desktop/
 
 echo "Installing wallpaper"
-pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
+sudo -u $USER pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
+
+# Go to user home directory before continue.
+cd ~
 
 echo ""
 echo "Creating systemd service for Wellzesat TV startup using Firefox..."
@@ -64,7 +67,7 @@ Description=Start Firefox-ESR on boot Running Wellzesta TV
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/firefox-esr --kiosk --new-window "http://tv.wellzesta.com"
+ExecStart=/usr/bin/firefox-esr --new-window "http://tv.wellzesta.com"
 Restart=always
 User=$USER
 Environment=DISPLAY=:0
