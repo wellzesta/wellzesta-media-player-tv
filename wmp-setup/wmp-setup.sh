@@ -53,9 +53,6 @@ wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper
 # cp "Wellzesta Active" ~/Desktop/
 
 echo "Installing wallpaper"
-
-export DISPLAY=:0.0
-export XDG_RUNTIME_DIR="/run/user/$(id -u)"
 pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
 
 echo ""
