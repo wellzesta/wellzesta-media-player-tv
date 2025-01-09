@@ -1,0 +1,11 @@
+[Desktop Entry]
+
+Type=Link
+
+Name=Wellzesta Active
+
+Comment=Open the Wellzesta Active login page
+
+Icon=/usr/share/wellzesta/wellzesta_active_icon.png
+
+URL=https://active.wellzesta.com/wz-login

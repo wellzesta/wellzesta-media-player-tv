@@ -1,0 +1,11 @@
+[Desktop Entry]
+
+Type=Link
+
+Name=Wellzesta TV
+
+Comment=Launch Wellzesta TV login page
+
+Icon=/usr/share/wellzesta/Wellzesta_vis_icon.png
+
+URL=https://tv.wellzesta.com/
