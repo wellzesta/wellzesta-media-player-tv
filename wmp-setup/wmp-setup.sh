@@ -48,7 +48,7 @@ wget $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O ~/Desktop/
 
 echo "Creating systemd service for Firefox startup..."
 
-cat <<EOF | sudo tee /etc/systemd/system/firefox-startup.service
+cat <<EOF | sudo tee /etc/systemd/system/wellzesta-tv-startup.service
 [Unit]
 Description=Start Firefox-ESR on boot Running Wellzesta TV
 After=network.target
@@ -68,7 +68,3 @@ sudo systemctl enable firefox-startup.service
 sudo systemctl start firefox-startup.service
 
 echo "Firefox startup service created and started."
-
-
-
-firefox --new-window "http://exemplo.com"
