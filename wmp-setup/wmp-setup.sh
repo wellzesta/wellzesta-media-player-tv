@@ -68,10 +68,10 @@ Description=Start Firefox-ESR on boot Running Wellzesta TV
 After=graphical.target network.target
 
 [Service]
-ExecStart=/usr/bin/firefox-esr --new-window "http://tv.wellzesta.com"
+ExecStart=/usr/bin/firefox-esr --kiosk --new-window "http://tv.wellzesta.com"
 Type=oneshot
 User=$SUDO_USER
-Environment=WAYLAND_DISPLAY=wayland-0
+Environment=DISPLAY=:0
 RemainAfterExit=no
 
 [Install]
