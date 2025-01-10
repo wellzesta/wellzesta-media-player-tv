@@ -48,8 +48,8 @@ cd wellzesta
 wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper.jpg -O ./wellzesta_wallpaper.jpg
 wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_vis_icon.png -O ./wellzesta_vis_icon.png
 wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_active_icon.png -O ./wellzesta_active_icon.png
-wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV.desktop -O "./Wellzesta TV.desktop"
-wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active -O "./Wellzesta Active"
+wget -q --show-progress "$GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20TV.desktop" -O "./Wellzesta TV.desktop"
+wget -q --show-progress "$GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta%20Active" -O "./Wellzesta Active"
 
 sudo -u $SUDO_USER cp "Wellzesta TV.desktop" "/home/$SUDO_USER/Desktop/"
 sudo -u $SUDO_USER cp "Wellzesta Active" "/home/$SUDO_USER/Desktop/"
