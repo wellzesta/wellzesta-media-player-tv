@@ -38,6 +38,7 @@ apt-get update -y
 echo ""
 echo "Installing packages"
 apt-get install -y firefox-esr
+apt-get install -y feh
 
 
 echo ""
@@ -59,7 +60,7 @@ sudo -u $SUDO_USER \
     DISPLAY=$DISPLAY \
     XAUTHORITY=$XAUTHORITY \
     DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS \
-    pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
+    feh --bg-scale ./wellzesta_wallpaper.jpg
 
 # Go to user home directory before continue.
 cd ~
@@ -85,7 +86,15 @@ EOF
 
 # Enable and start the service
 sudo systemctl enable w-tv-startup.service
-sudo systemctl start w-tv-startup.service
+
+# read -p "Do you want to open Wellzesta TV now? You can also launch it later using the desktop shortcut (y/n): " answer
+
+# if [[ "$answer" == [sS] ]]; then
+#     sudo systemctl start w-tv-startup.service
+#     echo "Wellzesta TV initialized."
+# else
+#     echo "You can also launch it later using the desktop shortcut"
+# fi
 
 echo ""
-echo "Firefox startup service created and started."
+echo "Finished Wellzesta TV setup."
