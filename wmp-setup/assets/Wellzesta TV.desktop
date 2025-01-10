@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Wellzesta TV
+Exec=firefox-sre --kiosk --new-window https://tv.wellzesta.com
+Icon=/usr/share/wellzesta/Wellzesta_vis_icon.png
+Comment=Starts Wellzesta TV in fullscreen
