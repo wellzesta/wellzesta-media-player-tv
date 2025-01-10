@@ -54,13 +54,13 @@ wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/Wellzesta_TV.deskto
 
 sudo -u $SUDO_USER cp "Wellzesta_TV.desktop" "/home/$SUDO_USER/Desktop/Wellzesta TV.desktop"
 sudo -u $SUDO_USER cp "Wellzesta_Active" "/home/$SUDO_USER/Desktop/Wellzesta Active"
-echo "Installing wallpaper"
-echo "Display: $DISPLAY"
-sudo -u $SUDO_USER \
-    DISPLAY=$DISPLAY \
-    XAUTHORITY=$XAUTHORITY \
-    DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS \
-    feh --bg-scale ./wellzesta_wallpaper.jpg
+# echo "Installing wallpaper"
+# echo "Display: $DISPLAY"
+# sudo -u $SUDO_USER \
+#     DISPLAY=$DISPLAY \
+#     XAUTHORITY=$XAUTHORITY \
+#     DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS \
+#     pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
 
 # Go to user home directory before continue.
 cd ~
@@ -68,7 +68,9 @@ cd ~
 echo ""
 echo "Creating systemd service for Wellzesta TV startup using Firefox..."
 
-cat <<EOF | sudo tee /etc/systemd/system/w-tv-startup.service
+SERVICE_NAME=w-tv-startup.service
+
+cat <<EOF | sudo tee /etc/systemd/system/$SERVICE_NAME
 [Unit]
 Description=Start Firefox-ESR on boot Running Wellzesta TV
 After=graphical.target network.target
@@ -85,12 +87,16 @@ WantedBy=graphical.target
 EOF
 
 # Enable and start the service
-sudo systemctl enable w-tv-startup.service
+sudo systemctl enable $SERVICE_NAME
+
+SUDOERS_FILE="/etc/sudoers.d/allow_${SERVICE_NAME}"
+echo "ALL ALL=NOPASSWD: /bin/systemctl start ${SERVICE_NAME}" | sudo tee "${SUDOERS_FILE}" > /dev/null
+sudo chmod 440 "${SUDOERS_FILE}"
 
 # read -p "Do you want to open Wellzesta TV now? You can also launch it later using the desktop shortcut (y/n): " answer
 
 # if [[ "$answer" == [sS] ]]; then
-#     sudo systemctl start w-tv-startup.service
+#     sudo systemctl start $SERVICE_NAME
 #     echo "Wellzesta TV initialized."
 # else
 #     echo "You can also launch it later using the desktop shortcut"
