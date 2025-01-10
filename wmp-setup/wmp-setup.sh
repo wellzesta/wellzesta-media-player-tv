@@ -54,7 +54,12 @@ wget -q --show-progress $GIT_RAW_REPOSITORY/$GIT_ASSETS_PATH/wellzesta_wallpaper
 # cp "Wellzesta TV" ~/Desktop/
 # cp "Wellzesta Active" ~/Desktop/
 echo "Installing wallpaper"
-sudo -u $SUDO_USER pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
+echo "Display: $DISPLAY"
+sudo -u $SUDO_USER \
+    DISPLAY=$DISPLAY \
+    XAUTHORITY=$XAUTHORITY \
+    DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS \
+    pcmanfm --set-wallpaper ./wellzesta_wallpaper.jpg
 
 # Go to user home directory before continue.
 cd ~
