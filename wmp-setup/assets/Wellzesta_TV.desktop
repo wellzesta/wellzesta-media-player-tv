@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Wellzesta TV
-Exec=firefox-sre --kiosk --new-window https://tv.wellzesta.com
+Exec=lxterminal -e "systemctl start w-tv-startup.service; exec bash"
 Icon=/usr/share/wellzesta/wellzesta_vis_icon.png
+Terminal=true
 Comment=Starts Wellzesta TV in fullscreen
