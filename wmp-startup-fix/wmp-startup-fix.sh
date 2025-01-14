@@ -55,8 +55,7 @@ EOF
 # Enable and start the service
 sudo systemctl enable $SERVICE_NAME
 
-sudo systemctl status w-tv-startup.service
-
+echo ""
 echo ""
 echo "Wellzesta TV startup service created with success!"
 echo "You're all set! Sit back, relax, and let your Raspberry Pi do the magic. 😉 If you need to close Firefox, just hit Alt + F4!"
