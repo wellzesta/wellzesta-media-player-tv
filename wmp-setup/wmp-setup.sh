@@ -89,10 +89,6 @@ EOF
 # Enable and start the service
 sudo systemctl enable $SERVICE_NAME
 
-SUDOERS_FILE="/etc/sudoers.d/allow_${SERVICE_NAME}"
-echo "ALL ALL=NOPASSWD: /bin/systemctl start ${SERVICE_NAME}" | sudo tee "${SUDOERS_FILE}" > /dev/null
-sudo chmod 440 "${SUDOERS_FILE}"
-
 # read -p "Do you want to open Wellzesta TV now? You can also launch it later using the desktop shortcut (y/n): " answer
 
 # if [[ "$answer" == [sS] ]]; then
