@@ -58,5 +58,6 @@ sudo systemctl enable $SERVICE_NAME
 echo ""
 echo ""
 echo "Wellzesta TV startup service created with success!"
-echo "You're all set! Sit back, relax, and let your Raspberry Pi do the magic. 😉 If you need to close Firefox, just hit Alt + F4!"
-echo "Happy streaming! 🚀"
+echo "You're all set! Sit back, relax, and let your Raspberry Pi do the magic."
+echo "If you need to close Firefox, just hit Alt + F4!"
+echo "Happy streaming!"
