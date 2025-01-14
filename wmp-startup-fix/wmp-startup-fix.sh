@@ -42,7 +42,7 @@ Description=Start Firefox-ESR on boot Running Wellzesta TV
 After=graphical.target network.target
 
 [Service]
-ExecStart=$FIREFOX_CMD --kiosk --new-window "http://tv.wellzesta.com"
+ExecStart=$FIREFOX_CMD --kiosk --new-window "https://tv.wellzesta.com"
 Type=oneshot
 User=$SUDO_USER
 Environment=DISPLAY=:0
@@ -55,5 +55,9 @@ EOF
 # Enable and start the service
 sudo systemctl enable $SERVICE_NAME
 
+sudo systemctl status w-tv-startup.service
+
 echo ""
 echo "Wellzesta TV startup service created with success!"
+echo "You're all set! Sit back, relax, and let your Raspberry Pi do the magic. 😉 If you need to close Firefox, just hit Alt + F4!"
+echo "Happy streaming! 🚀"
