@@ -68,6 +68,45 @@ fi
 log_message ""
 log_message "Creating systemd service for Wellzesta TV startup using $FIREFOX_CMD..."
 
+# Check if service already exists
+if [ -f "/etc/systemd/system/$SERVICE_NAME" ]; then
+    log_message "Service already exists. Stopping and removing existing service..."
+    
+    # Stop the service if it's running
+    if systemctl is-active --quiet "$SERVICE_NAME"; then
+        log_message "Stopping existing service..."
+        if ! sudo systemctl stop "$SERVICE_NAME"; then
+            log_message "Warning: Failed to stop existing service"
+        fi
+    fi
+    
+    # Disable the service
+    if systemctl is-enabled --quiet "$SERVICE_NAME"; then
+        log_message "Disabling existing service..."
+        if ! sudo systemctl disable "$SERVICE_NAME"; then
+            log_message "Warning: Failed to disable existing service"
+        fi
+    fi
+    
+    # Remove the service file
+    log_message "Removing existing service file..."
+    if ! sudo rm "/etc/systemd/system/$SERVICE_NAME"; then
+        log_message "Failed to remove existing service file"
+        exit 1
+    fi
+    
+    # Reload systemd to recognize the removal
+    log_message "Reloading systemd daemon after removal..."
+    if ! sudo systemctl daemon-reload; then
+        log_message "Failed to reload systemd daemon after removal"
+        exit 1
+    fi
+    
+    log_message "Existing service removed successfully"
+fi
+
+# Create new service file
+log_message "Creating new service file..."
 sudo bash -c "cat > /etc/systemd/system/$SERVICE_NAME" <<EOF
 [Unit]
 Description=Start Firefox-ESR on boot Running Wellzesta TV
