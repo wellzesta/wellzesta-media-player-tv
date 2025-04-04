@@ -35,19 +35,15 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Explicit check for SUDO_USER
-if [ -z "$SUDO_USER" ]; then
-    CURRENT_USER="wellzesta"
-    log_message "SUDO_USER is empty, using default user: $CURRENT_USER"
-else
-    CURRENT_USER="$SUDO_USER"
-    log_message "Using SUDO_USER: $CURRENT_USER"
-fi
+CURRENT_USER="wellzesta"  # User with graphical session access
+log_message "Using graphical session user: $CURRENT_USER"
 
+# Debug information for troubleshooting
 log_message "Debug information:"
-log_message "SUDO_USER=$SUDO_USER"
-log_message "USER=$USER"
+log_message "Script execution user (SUDO_USER)=$SUDO_USER"
+log_message "Current root user (USER)=$USER"
 log_message "EUID=$EUID"
-log_message "CURRENT_USER=$CURRENT_USER"
+log_message "Graphical session user (CURRENT_USER)=$CURRENT_USER"
 
 log_message "OS Name and Version"
 os_info=$(cat /etc/os-release)
