@@ -22,6 +22,11 @@ log_message() {
     echo "[$timestamp] $1" | sudo tee -a "$LOG_PATH/deploy-startup-script-fix.log"
 }
 
+log_message ""
+log_message "---------------------------------------------------------------------------------------------"
+log_message "Starting deployment of Wellzesta TV startup script fix"
+log_message "---------------------------------------------------------------------------------------------"
+
 # Check if the script is being run as root
 if [ "$EUID" -ne 0 ]; then
   log_message "This script must be run as root. Please try again using sudo."
