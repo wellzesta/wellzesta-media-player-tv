@@ -43,6 +43,12 @@ else
     log_message "Using SUDO_USER: $CURRENT_USER"
 fi
 
+log_message "Debug information:"
+log_message "SUDO_USER=$SUDO_USER"
+log_message "USER=$USER"
+log_message "EUID=$EUID"
+log_message "CURRENT_USER=$CURRENT_USER"
+
 log_message "OS Name and Version"
 os_info=$(cat /etc/os-release)
 log_message "System Information: \n$os_info"
